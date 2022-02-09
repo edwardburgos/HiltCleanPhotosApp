@@ -4,6 +4,8 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -69,6 +71,7 @@ dependencies {
     // Glide
     implementation "com.github.bumptech.glide:glide:$version_glide"
 
-    // Koin
-    implementation "io.insert-koin:koin-android:$version_koin"
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$version_hilt-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:$version_hilt-alpha"
 }

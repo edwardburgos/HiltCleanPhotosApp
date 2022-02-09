@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -62,10 +63,11 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$version_room"
 
-    // Koin
-    implementation "io.insert-koin:koin-android:$version_koin"
-
     // Moshi
     implementation "com.squareup.moshi:moshi:$version_moshi"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$version_hilt-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:$version_hilt-alpha"
 }
