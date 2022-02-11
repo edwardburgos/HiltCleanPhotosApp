@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.example.photosapp.detail.PhotosSnapAdapter
+import com.example.photosapp.recyclerview.adapters.PhotosSnapAdapter
 import com.bumptech.glide.load.model.LazyHeaders
 import com.bumptech.glide.load.model.GlideUrl
 import com.example.domain.ApiStatus
 import com.example.domain.Photo
-import com.example.photosapp.overview.PhotosAdapter
+import com.example.photosapp.recyclerview.adapters.PhotosAdapter
 
 @BindingAdapter("listDataInSnap")
 fun bindRecyclerViewWithSnap(recyclerView: RecyclerView, data: List<Photo>?) {

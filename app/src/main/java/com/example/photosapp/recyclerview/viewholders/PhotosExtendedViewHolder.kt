@@ -1,4 +1,4 @@
-package com.example.photosapp.detail
+package com.example.photosapp.recyclerview.viewholders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Photo

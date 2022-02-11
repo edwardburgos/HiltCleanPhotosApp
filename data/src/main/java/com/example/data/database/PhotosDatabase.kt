@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.data.database.model.PhotoDatabase
 
 @Database(entities = [PhotoDatabase::class], version = 3, exportSchema = false)
-abstract class PhotosDatabase : RoomDatabase() {
+abstract class PhotosDatabase: RoomDatabase() {
 
     abstract val photoDao: PhotoDao
 

@@ -1,4 +1,4 @@
-package com.example.photosapp.overview
+package com.example.photosapp.recyclerview.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,10 +8,13 @@ import com.example.domain.Photo
 import com.example.photosapp.R
 import com.example.photosapp.databinding.PhotoItemBinding
 import com.example.photosapp.databinding.PhotoItemOptionalBinding
+import com.example.photosapp.recyclerview.viewholders.ViewHolders
 
 import java.lang.IllegalArgumentException
 
-class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(DiffCallback) {
+class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(
+    DiffCallback
+) {
 
     companion object DiffCallback: DiffUtil.ItemCallback<Photo>() {
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
@@ -26,17 +29,21 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
         parent: ViewGroup,
         viewType: Int
     ): ViewHolders {
-//        val viewHolder: ViewHolders.PhotoViewHolder by inject {
-//            parametersOf(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
-//        }
-//        val viewHolderOptional: ViewHolders.PhotoOptionalViewHolder by inject {
-//            parametersOf(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
-//        }
         return when (viewType) {
             R.layout.photo_item ->
-                return ViewHolders.PhotoViewHolder(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
+                return ViewHolders.PhotoViewHolder(
+                    PhotoItemBinding.inflate(
+                        LayoutInflater.from(
+                            parent.context
+                        )
+                    )
+                )
             R.layout.photo_item_optional ->
-                return ViewHolders.PhotoOptionalViewHolder(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
+                return ViewHolders.PhotoOptionalViewHolder(
+                    PhotoItemOptionalBinding.inflate(
+                        LayoutInflater.from(parent.context)
+                    )
+                )
             else -> throw IllegalArgumentException("Invalid viewType provided")
         }
     }

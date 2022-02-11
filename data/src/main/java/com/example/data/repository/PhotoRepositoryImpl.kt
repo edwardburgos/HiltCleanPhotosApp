@@ -4,13 +4,13 @@ import com.example.data.database.PhotoDao
 import com.example.data.database.model.PhotoDatabaseMapper
 import com.example.data.network.ApiService
 import com.example.domain.Photo
-import org.koin.core.component.KoinComponent
+import javax.inject.Inject
 
-class PhotoRepositoryImpl(
+class PhotoRepositoryImpl @Inject constructor(
     val photoDao: PhotoDao,
     val apiService: ApiService,
     val databaseMapper: PhotoDatabaseMapper,
-) : PhotoRepository, KoinComponent {
+) : PhotoRepository {
 
     override suspend fun getPhotosFromApi() = apiService.getPhotos(0, 100)
     override fun getPhotosFromDatabase() = photoDao.getAllPhotos()

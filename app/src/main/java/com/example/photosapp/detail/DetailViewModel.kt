@@ -1,18 +1,19 @@
 package com.example.photosapp.detail
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.data.database.model.PhotoDatabase
 import com.example.data.database.model.PhotoDatabaseMapper
 import com.example.domain.ApiStatus
 import com.example.domain.Photo
 import com.example.usecases.photo.getphotos.GetPhotosDatabaseUseCaseImpl
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class DetailViewModel(app: Application,
-                      private val getPhotosDatabase: GetPhotosDatabaseUseCaseImpl,
-                      private val databaseMapper: PhotoDatabaseMapper) :
-    AndroidViewModel(app) {
+@HiltViewModel
+class DetailViewModel @Inject constructor(
+   private val getPhotosDatabase: GetPhotosDatabaseUseCaseImpl,
+   private val databaseMapper: PhotoDatabaseMapper): ViewModel() {
 
     var currentPhotoPosition = 0
 

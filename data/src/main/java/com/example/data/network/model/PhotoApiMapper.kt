@@ -2,8 +2,9 @@ package com.example.data.network.model
 
 import com.example.domain.Photo
 import com.example.domain.utils.DomainMapper
+import javax.inject.Inject
 
-class PhotoApiMapper: DomainMapper<PhotoApi, Photo> {
+class PhotoApiMapper @Inject constructor(): DomainMapper<PhotoApi, Photo> {
     override fun mapToDomainModel(model: PhotoApi): Photo {
         return Photo(
             model.id,

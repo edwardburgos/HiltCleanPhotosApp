@@ -4,15 +4,18 @@ import com.example.photosapp.databinding.FragmentOverviewBinding
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.photosapp.recyclerview.adapters.PhotosAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OverviewFragment : Fragment() {
 
     lateinit var binding: FragmentOverviewBinding
 
-    val viewModel: OverviewViewModel by viewModel()
+    val viewModel: OverviewViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

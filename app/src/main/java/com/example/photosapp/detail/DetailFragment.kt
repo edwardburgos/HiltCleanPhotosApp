@@ -5,18 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.*
 import com.example.photosapp.databinding.FragmentDetailBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.photosapp.recyclerview.adapters.PhotosSnapAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     lateinit var binding: FragmentDetailBinding
 
-    val viewModel: DetailViewModel by viewModel()
+    val viewModel: DetailViewModel by viewModels()
+
     val snapHelper = PagerSnapHelper()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

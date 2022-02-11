@@ -1,4 +1,4 @@
-package com.example.photosapp.detail
+package com.example.photosapp.recyclerview.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.domain.Photo
 import com.example.photosapp.databinding.PhotoExtendedItemBinding
+import com.example.photosapp.recyclerview.viewholders.PhotosExtendedViewHolder
 
 class PhotosSnapAdapter(): ListAdapter<Photo, PhotosExtendedViewHolder>(DiffCallback) {
     companion object DiffCallback: DiffUtil.ItemCallback<Photo>() {
@@ -21,11 +22,6 @@ class PhotosSnapAdapter(): ListAdapter<Photo, PhotosExtendedViewHolder>(DiffCall
         parent: ViewGroup,
         viewType: Int
     ): PhotosExtendedViewHolder {
-//        val viewHolder: PhotosExtendedViewHolder by inject {
-//            parametersOf(PhotoExtendedItemBinding.inflate(LayoutInflater.from(parent.context)))
-//        }
-        // return viewHolder
-        //binding.photosSnap.adapter = PhotosSnapAdapter()
         return PhotosExtendedViewHolder(PhotoExtendedItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 

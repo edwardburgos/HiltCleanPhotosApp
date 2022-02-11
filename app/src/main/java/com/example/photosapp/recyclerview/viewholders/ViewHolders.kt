@@ -1,4 +1,4 @@
-package com.example.photosapp.overview
+package com.example.photosapp.recyclerview.viewholders
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

@@ -1,6 +1,5 @@
 package com.example.photosapp.overview
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.data.database.model.PhotoDatabase
 import com.example.data.database.model.PhotoDatabaseMapper
@@ -11,18 +10,20 @@ import com.example.domain.Photo
 import com.example.usecases.photo.getphotos.GetPhotosApiUseCaseImpl
 import com.example.usecases.photo.getphotos.GetPhotosDatabaseUseCaseImpl
 import com.example.usecases.photo.insertphotos.InsertPhotosUseCaseImpl
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import java.net.InetSocketAddress
 import java.net.Socket
+import javax.inject.Inject
 
-class OverviewViewModel(
-    app: Application,
+@HiltViewModel
+class OverviewViewModel @Inject constructor(
     private val getPhotosApi: GetPhotosApiUseCaseImpl,
     private val getPhotosDatabase: GetPhotosDatabaseUseCaseImpl,
     private val insertPhotos: InsertPhotosUseCaseImpl,
     private val apiMapper: PhotoApiMapper,
     private val databaseMapper: PhotoDatabaseMapper
-) : AndroidViewModel(app) {
+) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: MutableLiveData<ApiStatus>
