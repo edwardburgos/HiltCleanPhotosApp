@@ -8,13 +8,10 @@ import com.example.domain.Photo
 import com.example.photosapp.R
 import com.example.photosapp.databinding.PhotoItemBinding
 import com.example.photosapp.databinding.PhotoItemOptionalBinding
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
-import org.koin.core.parameter.parametersOf
 
 import java.lang.IllegalArgumentException
 
-class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(DiffCallback), KoinComponent {
+class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(DiffCallback) {
 
     companion object DiffCallback: DiffUtil.ItemCallback<Photo>() {
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
@@ -29,17 +26,17 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
         parent: ViewGroup,
         viewType: Int
     ): ViewHolders {
-        val viewHolder: ViewHolders.PhotoViewHolder by inject {
-            parametersOf(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
-        }
-        val viewHolderOptional: ViewHolders.PhotoOptionalViewHolder by inject {
-            parametersOf(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
-        }
+//        val viewHolder: ViewHolders.PhotoViewHolder by inject {
+//            parametersOf(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
+//        }
+//        val viewHolderOptional: ViewHolders.PhotoOptionalViewHolder by inject {
+//            parametersOf(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
+//        }
         return when (viewType) {
             R.layout.photo_item ->
-                return viewHolder
+                return ViewHolders.PhotoViewHolder(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
             R.layout.photo_item_optional ->
-                return viewHolderOptional
+                return ViewHolders.PhotoOptionalViewHolder(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
             else -> throw IllegalArgumentException("Invalid viewType provided")
         }
     }
