@@ -96,4 +96,10 @@ dependencies {
 
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$version_room"
+
+    // RxJava and RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:$version_rxjava"
+
+    // RxAndroid
+    implementation "io.reactivex.rxjava2:rxandroid:$version_rxandroid"
 }
