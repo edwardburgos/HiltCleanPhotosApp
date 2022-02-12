@@ -8,7 +8,7 @@ import com.example.domain.Photo
 import com.example.photosapp.databinding.PhotoExtendedItemBinding
 import com.example.photosapp.recyclerview.viewholders.PhotosExtendedViewHolder
 
-class PhotosSnapAdapter(): ListAdapter<Photo, PhotosExtendedViewHolder>(DiffCallback) {
+class PhotosSnapAdapter: ListAdapter<Photo, PhotosExtendedViewHolder>(DiffCallback) {
     companion object DiffCallback: DiffUtil.ItemCallback<Photo>() {
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
             return oldItem == newItem
