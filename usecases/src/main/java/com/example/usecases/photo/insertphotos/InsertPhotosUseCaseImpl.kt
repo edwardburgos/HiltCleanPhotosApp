@@ -5,5 +5,5 @@ import com.example.domain.Photo
 import javax.inject.Inject
 
 class InsertPhotosUseCaseImpl @Inject constructor(private val photoRepository: PhotoRepositoryImpl): InsertPhotosUseCase {
-    override suspend operator fun invoke(photos: List<Photo>) = photoRepository.insertPhotos(photos)
+    override operator fun invoke(photos: List<Photo>) = photoRepository.insertPhotos(photos)
 }
