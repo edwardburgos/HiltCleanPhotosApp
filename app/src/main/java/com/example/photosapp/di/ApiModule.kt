@@ -5,7 +5,6 @@ import com.example.data.network.model.PhotoApi
 import com.example.data.network.model.PhotoApiMapper
 import com.example.domain.Photo
 import com.example.domain.utils.DomainMapper
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -13,13 +12,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class ApiModule {
-    private val BASE_URL = "https://jsonplaceholder.typicode.com/"
+    private val url = "https://jsonplaceholder.typicode.com/"
 
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
@@ -29,9 +29,9 @@ class ApiModule {
     @Provides
     fun providesRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(url)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     }
 
     @Singleton
