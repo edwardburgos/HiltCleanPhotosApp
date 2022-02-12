@@ -12,7 +12,7 @@ import com.example.photosapp.recyclerview.viewholders.ViewHolders
 
 import java.lang.IllegalArgumentException
 
-class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(
+class PhotosAdapter(private val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(
     DiffCallback
 ) {
 
@@ -29,7 +29,7 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
         parent: ViewGroup,
         viewType: Int
     ): ViewHolders {
-        return when (viewType) {
+        when (viewType) {
             R.layout.photo_item ->
                 return ViewHolders.PhotoViewHolder(
                     PhotoItemBinding.inflate(
