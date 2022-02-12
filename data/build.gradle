@@ -70,6 +70,7 @@ dependencies {
     // RxAndroid
     implementation "io.reactivex.rxjava2:rxandroid:$version_rxandroid"
 
+    // RxJava for Room
     implementation 'androidx.room:room-rxjava2:2.4.1'
 
 }
